@@ -8,7 +8,7 @@ import time
 from minbpe import BasicTokenizer, RegexTokenizer, ParallelTokenizer
 
 # open some text and train a vocab of 512 tokens
-text = open("tests/taylorswift.txt", "r", encoding="utf-8").read()
+text = open("tests/siku.txt", "r", encoding="utf-8").read()
 
 # create a directory for models, so we don't pollute the current directory
 os.makedirs("models", exist_ok=True)
