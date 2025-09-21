@@ -5,7 +5,7 @@ The whole thing runs in ~25 seconds on my laptop.
 
 import os
 import time
-from minbpe import BasicTokenizer, RegexTokenizer, ParallelTokenizer
+from minbpe import BasicTokenizer, RegexTokenizer, ParallelTokenizer, ParallelRegexTokenizer
 
 # open some text and train a vocab of 512 tokens
 text = open("tests/siku.txt", "r", encoding="utf-8").read()
@@ -19,7 +19,8 @@ total_start_time = time.time()
 # 存储每个分词器的训练时间
 training_times = []
 
-for TokenizerClass, name in zip([BasicTokenizer, RegexTokenizer, ParallelTokenizer], ["basic", "regex", "parallel"]):
+# for TokenizerClass, name in zip([BasicTokenizer, RegexTokenizer, ParallelTokenizer, ParallelRegexTokenizer], ["basic", "regex", "parallel", "parallelregex"]):
+for TokenizerClass, name in zip([ParallelRegexTokenizer], ["parallelregex"]):
     print(f"\n--- Training {name} tokenizer ---")
 
     # 记录单个分词器的开始时间
